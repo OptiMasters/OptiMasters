@@ -27,7 +27,7 @@ class Question(models.Model):
         self.save()
 
 class Answer(models.Model):
-    damage_result=models.TextField()
+    damage_result=models.TextField(null=True, blank=True)
 
     wname = models.TextField(max_length=20)
     wplace = models.TextField(max_length=20)

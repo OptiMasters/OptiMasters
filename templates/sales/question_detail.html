@@ -66,28 +66,25 @@
         <div class="card-body">
             <div class="card-text">
                 <div>
-                    {% if answer.predicted_image %}
-                        <div class="container border col-10">
-                            <div style="width:10%; height:150px; float:left; margin-right:10px;">
-                                <img src="{{ answer.predicted_imgfile.url }}" width:"400px">
-                            </div>
-                        </div>
+                    {% if answer.predicted_imgfile == '' or answer.predicted_imgfile == null %}
+                    {% else %}
+                    <tr>
+                        <td colspan="2"><img src="{{ answer.predicted_imgfile.url }}"
+                                             style="max-width:400px"></td>
+                    </tr>
                     {% endif %}
                 </div>
                 <div id="text1">
-                    <strong> 손상 여부 결과 : {{ answer.damage_result }} </strong>
+                    <strong> 개체수 : {{ answer.damage_result }} </strong>
                 </div>
                 <div id="text2">
-                    <strong> 근무자명 : {{ answer.wname }} </strong>
+                    <strong> 상처개수 : {{ answer.wname }} </strong>
                 </div>
-                <div id="text3">
-                    <strong> 근무지역 : {{ answer.wplace }} </strong>
-                </div>
-                <div id="text4">
-                    <strong> 항구명 : {{ answer.port }} </strong>
-                </div>
+                <!-- <div id="text3">
+                    <strong> 손상율 : {{ answer.wplace }} </strong>
+                </div> -->
             </div>
-            {% if request.user == answer.author %}
+            {% if request.user.is_superuser %} <!--수정과 삭제를 관리자 권한으로 변경-->
             <div class="my-3">
                 <a href="{% url 'sales:answer_modify' answer.id %}"
                    class="btn btn-sm btn-outline-secondary">수정</a>
@@ -104,7 +101,7 @@
             </div>
             {% endif %}
             <div class="badge badge-light p-2 text-left">
-                <div class="mb-2">{{ answer.author.username }}</div>
+                <div class="mb-2">admin</div>
                 {{ answer.create_date|date }}
             </div>
         </div>
@@ -124,10 +121,10 @@
         {% endfor %}
         </div>
         {% endif %}
-        <a href="{% url 'sales:answer_create' question.id %}" class="btn btn-primary"
+        <!-- <a href="{% url 'sales:answer_create' question.id %}" class="btn btn-primary"
            style="background-color:#02075D; color:#ffffff">
             답변 등록
-        </a>
+        </a> -->
     </form>
 </div>
 {% endblock %}

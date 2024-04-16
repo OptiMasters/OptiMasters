@@ -57,9 +57,9 @@
 
             <td class="text-truncate" style="max-width: 100px;">
                 {% if question.upload_imgfile != '' and question.upload_imgfile != null %}
-                <span class="badge badge-secondary py-1">
-                    {{ question.upload_imgfile }}
-                </span>
+                <span class="badge badge-pill badge-info py-1">O</span>
+                {% else %}
+                <span class="badge badge-pill badge-secondary py-1">X</span>
                 {% endif %}
             </td>
         </tr>

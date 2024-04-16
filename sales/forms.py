@@ -22,5 +22,5 @@ class AnswerForm(forms.ModelForm):
         fields=['predicted_imgfile','damage_result']
         labels={
             'predicted_imgfile':'이미지',
-            'damage_result':'손상 여부 결과'
+            'damage_result':'개체수'
         }
