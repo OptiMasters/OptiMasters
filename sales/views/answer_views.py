@@ -24,7 +24,8 @@ def answer_create(request, question_id, result_mesg, out_file): # 인자가 어�
             answer.create_date=timezone.now()
             answer.question=question
             answer.save()
-            return redirect('sales:detail', question_id=question.id)
+            return redirect('{}#answer_{}'.format(
+                resolve_url('sales:detail', question_id=question.id), answer.id))
     else:
         form=AnswerForm()
     context={'question':question,'form':form}

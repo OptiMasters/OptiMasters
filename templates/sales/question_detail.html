@@ -62,6 +62,7 @@
 
 
     {% for answer in question.answer_set.all %}
+    <a name="answer_{{ answer.id}}"></a>
     <div class="card my-3">
         <div class="card-body">
             <div class="card-text">
@@ -75,10 +76,10 @@
                     {% endif %}
                 </div>
                 <div id="text1">
-                    <strong> 개체수 : {{ answer.damage_result }} </strong>
+                    <strong> 상처개수 : {{ answer.damage_result }} </strong>
                 </div>
                 <div id="text2">
-                    <strong> 상처개수 : {{ answer.wname }} </strong>
+                    <strong> 개체수 : {{ answer.wname }} </strong>
                 </div>
                 <!-- <div id="text3">
                     <strong> 손상율 : {{ answer.wplace }} </strong>

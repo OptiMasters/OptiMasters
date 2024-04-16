@@ -39,7 +39,7 @@ def count_objects(results, target_classes):
         if object_counts[i] >= 1 :
             total_counts += object_counts[i]
 
-    return object_counts[0],total_counts # [halibut]마리, 전체 건수
+    return object_counts[1],total_counts # [halibut]마리, 전체 건수
 
 # 이미지에 counter 넣기 함수
 def plot_counter1(img, text1): # text 1 줄만 넣기
